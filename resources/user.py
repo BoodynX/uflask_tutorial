@@ -1,7 +1,6 @@
 from flask_jwt_extended import create_access_token, create_refresh_token
 from flask_restful import Resource, reqparse
 from werkzeug.security import safe_str_cmp
-
 from models.user import UserModel
 
 _user_parser = reqparse.RequestParser()
@@ -69,4 +68,4 @@ class UserLogin(Resource):
                        'refresh_token': refresh_token
                    }, 200
 
-        return {'message': 'Invalid credentials'},
+        return {'message': 'Invalid credentials'}, 401
